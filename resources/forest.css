@@ -1,0 +1,281 @@
+/* ============================================================
+   Purple Mountain — JavaFX Stylesheet
+   Aesthetic: Alpine / Organic Natural
+   Palette: deep pine night · moss green · stone · birch cream
+   ============================================================ */
+
+/* ─────────────────────────────────────────
+   ROOT / SCENE BACKGROUND
+   ───────────────────────────────────────── */
+.root {
+    -fx-background-color: #1e2a22;
+
+    /* Colour tokens — referenced throughout */
+    -color-bg-deep:      #1e2a22;
+    -color-bg-panel:     #243029;
+    -color-surface:      #2e3d33;
+    -color-surface-alt:  #364840;
+    -color-border:       #4a6652;
+    -color-moss:         #5a8a5e;
+    -color-moss-bright:  #72b077;
+    -color-sage:         #a3c4a8;
+    -color-birch:        #e8e0d0;
+    -color-birch-dim:    #b5aa98;
+    -color-gold:         #c9a84c;
+    -color-closed:       #c0392b;
+    -color-closed-dim:   #7a2018;
+    -color-open:         #27ae60;
+}
+
+/* ─────────────────────────────────────────
+   ANCHOR PANE  (main container)
+   ───────────────────────────────────────── */
+AnchorPane {
+    -fx-background-color:
+        radial-gradient(center 15% 10%, radius 60%,
+            #2a3d2f 0%, #1e2a22 100%);
+}
+
+/* ─────────────────────────────────────────
+   TITLE LABEL  (#title_label)
+   ───────────────────────────────────────── */
+#title_label {
+    -fx-text-fill: -color-birch;
+    -fx-font-family: "Georgia";
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-effect:
+        dropshadow(gaussian, #72b07760, 14, 0.4, 0, 2);
+}
+
+/* ─────────────────────────────────────────
+   MOUNTAIN MANAGER LABEL  (#mountain_manager_label)
+   ───────────────────────────────────────── */
+#mountain_manager_label {
+    -fx-text-fill: -color-birch-dim;
+    -fx-font-family: "Verdana";
+    -fx-font-size: 11px;
+    -fx-font-style: italic;
+}
+
+/* ─────────────────────────────────────────
+   CLOCK / STATUS TEXT AREA  (#clock_TextArea)
+   Closed state (default) — swap .open class in controller
+   ───────────────────────────────────────── */
+#clock_TextArea {
+    -fx-background-color: -color-closed-dim;
+    -fx-control-inner-background: -color-surface;
+    -fx-background-radius: 6px;
+    -fx-border-color: -color-closed;
+    -fx-border-radius: 6px;
+    -fx-border-width: 1.5px;
+    -fx-text-fill: #f5c6c0;
+    -fx-font-family: "Lucida Sans";
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-effect:
+        dropshadow(gaussian, #c0392b55, 10, 0.3, 0, 0);
+}
+
+/* Add style class "open" via controller when trails open */
+#clock_TextArea.open {
+    -fx-background-color: #1a3d28;
+    -fx-border-color: -color-open;
+    -fx-text-fill: #a8e6b8;
+    -fx-effect:
+        dropshadow(gaussian, #27ae6055, 10, 0.3, 0, 0);
+}
+
+/* ─────────────────────────────────────────
+   HIKER INFO TEXT AREA  (#hikerInfo_TextArea)
+   ───────────────────────────────────────── */
+#hikerInfo_TextArea {
+    -fx-background-color: -color-bg-panel;
+    -fx-control-inner-background: -color-bg-panel;
+    -fx-background-radius: 10px;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 10px;
+    -fx-border-width: 1.5px;
+    -fx-text-fill: -color-birch;
+    -fx-font-family: "Lucida Sans";
+    -fx-font-size: 13px;
+    -fx-prompt-text-fill: -color-birch-dim;
+    -fx-effect:
+        innershadow(gaussian, #00000055, 8, 0.2, 0, 2);
+}
+
+#hikerInfo_TextArea:focused {
+    -fx-border-color: -color-moss-bright;
+    -fx-effect:
+        dropshadow(gaussian, #72b07740, 12, 0.3, 0, 0),
+        innershadow(gaussian, #00000055, 8, 0.2, 0, 2);
+}
+
+#hikerInfo_TextArea .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+#hikerInfo_TextArea .scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+/* ─────────────────────────────────────────
+   NUMBER OF HIKERS TEXT FIELD  (#numOfHikers_TextField)
+   ───────────────────────────────────────── */
+#numOfHikers_TextField {
+    -fx-background-color: -color-surface;
+    -fx-background-radius: 7px;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 7px;
+    -fx-border-width: 1.5px;
+    -fx-text-fill: -color-birch;
+    -fx-font-family: "Verdana";
+    -fx-font-size: 13px;
+    -fx-prompt-text-fill: -color-birch-dim;
+    -fx-padding: 6px 10px;
+}
+
+#numOfHikers_TextField:focused {
+    -fx-border-color: -color-moss-bright;
+    -fx-background-color: -color-surface-alt;
+    -fx-effect:
+        dropshadow(gaussian, #72b07740, 10, 0.3, 0, 0);
+}
+
+/* ─────────────────────────────────────────
+   BUTTONS — shared base
+   ───────────────────────────────────────── */
+.button {
+    -fx-background-color:
+        linear-gradient(to bottom, -color-surface-alt, -color-surface);
+    -fx-background-radius: 9px;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 9px;
+    -fx-border-width: 1.5px;
+    -fx-text-fill: -color-birch;
+    -fx-font-family: "Verdana";
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-effect:
+        dropshadow(gaussian, #00000066, 6, 0.2, 0, 3);
+}
+
+.button:hover {
+    -fx-background-color:
+        linear-gradient(to bottom, -color-moss, #3d6642);
+    -fx-border-color: -color-moss-bright;
+    -fx-text-fill: #ffffff;
+    -fx-effect:
+        dropshadow(gaussian, #72b07766, 12, 0.4, 0, 3);
+}
+
+.button:pressed {
+    -fx-background-color:
+        linear-gradient(to bottom, #2f4d33, -color-surface);
+    -fx-border-color: -color-moss;
+    -fx-effect:
+        dropshadow(gaussian, #00000066, 3, 0.1, 0, 1);
+    -fx-translate-y: 1px;
+}
+
+/* ── Start Button  (#start_Button) ── */
+#start_Button {
+    -fx-background-color:
+        linear-gradient(to bottom, #3d6e42, #2b5030);
+    -fx-border-color: -color-moss-bright;
+    -fx-text-fill: #e0f4e2;
+}
+
+#start_Button:hover {
+    -fx-background-color:
+        linear-gradient(to bottom, #4e8a54, #376040);
+    -fx-border-color: #8dd494;
+}
+
+#start_Button:pressed {
+    -fx-background-color:
+        linear-gradient(to bottom, #2b5030, #1e3a24);
+}
+
+/* ── Open Trails Button  (#openTrail_Button) ── */
+/* inherits .button defaults — naturally neutral/earthy */
+
+/* ── Close Trails Button  (#closeTrail_Button) ── */
+#closeTrail_Button {
+    -fx-background-color:
+        linear-gradient(to bottom, #5c2e28, #3d1c18);
+    -fx-border-color: -color-closed;
+    -fx-text-fill: #f5c6c0;
+}
+
+#closeTrail_Button:hover {
+    -fx-background-color:
+        linear-gradient(to bottom, #8b3a30, #5c2e28);
+    -fx-border-color: #e05a4e;
+    -fx-text-fill: #ffffff;
+    -fx-effect:
+        dropshadow(gaussian, #c0392b66, 12, 0.4, 0, 3);
+}
+
+#closeTrail_Button:pressed {
+    -fx-background-color:
+        linear-gradient(to bottom, #3d1c18, #2a1010);
+}
+
+/* ─────────────────────────────────────────
+   CHECKBOX  (#manager_CheckBox)
+   ───────────────────────────────────────── */
+#manager_CheckBox {
+    -fx-text-fill: -color-birch-dim;
+    -fx-font-family: "Verdana";
+    -fx-font-size: 12px;
+}
+
+#manager_CheckBox .box {
+    -fx-background-color: -color-surface;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 4px;
+    -fx-border-width: 1.5px;
+    -fx-background-radius: 4px;
+}
+
+#manager_CheckBox:hover .box {
+    -fx-border-color: -color-moss-bright;
+}
+
+#manager_CheckBox:selected .box {
+    -fx-background-color: -color-moss;
+    -fx-border-color: -color-moss-bright;
+}
+
+#manager_CheckBox:selected .mark {
+    -fx-background-color: #ffffff;
+}
+
+/* ─────────────────────────────────────────
+   SCROLL BARS  (global)
+   ───────────────────────────────────────── */
+.scroll-bar {
+    -fx-background-color: -color-bg-panel;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: -color-border;
+    -fx-background-radius: 4px;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: -color-moss;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 2px;
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-background-color: -color-border;
+}

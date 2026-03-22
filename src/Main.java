@@ -26,8 +26,8 @@ public class Main extends Application {
         try {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("/PurpleMtn1.1.fxml"));
             AnchorPane root = loader.load();
-
             Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/forest.css").toExternalForm());
             primaryStage.setScene(scene);
 
             primaryStage.show();
